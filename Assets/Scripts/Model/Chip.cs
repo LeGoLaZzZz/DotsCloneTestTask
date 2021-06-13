@@ -1,5 +1,8 @@
+using System;
+
 namespace Model
 {
+    [Serializable]
     public class Chip
     {
         private ChipType _chipType;

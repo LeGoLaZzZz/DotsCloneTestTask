@@ -61,7 +61,7 @@ namespace Model
                 connectCells.Add(CellGrid.GetCell(cell.x, cell.y));
             }
 
-            if (CellConnector.CanConnect(connectCells))
+            if (CellConnector.CanConnectScore(connectCells, out var isCycleConnection))
             {
                 CellConnector.TryConnect(connectCells);
                 LogGrid();

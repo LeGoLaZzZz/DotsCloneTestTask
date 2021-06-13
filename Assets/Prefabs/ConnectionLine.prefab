@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 345631489564268394}
   - component: {fileID: 345631489564268397}
+  - component: {fileID: 2055470791}
   m_Layer: 0
   m_Name: ConnectionLine
   m_TagString: Untagged
@@ -126,5 +127,21 @@ LineRenderer:
     textureMode: 1
     shadowBias: 0
     generateLightingData: 0
-  m_UseWorldSpace: 0
+  m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &2055470791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345631489564268396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2d4c2aca5f4d43961b207d1185f743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineRenderer: {fileID: 345631489564268397}
+  cellViewsConnector: {fileID: 0}
+  chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
+  inputChannel: {fileID: 11400000, guid: e5dc92e235f46704f935fe1d7c32d3d4, type: 2}

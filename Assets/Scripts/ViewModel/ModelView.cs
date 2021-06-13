@@ -8,6 +8,7 @@ namespace View
     {
         [SerializeField] private CellGridViewGenerator cellGridViewGenerator;
         [SerializeField] private ChipViewFiller chipViewFiller;
+        [SerializeField] private CellViewsConnector cellViewsConnector;
 
         public Vector2Int cellGridSize = new Vector2Int(6, 6);
 
@@ -16,6 +17,13 @@ namespace View
         private ChipsDropper _chipsDropper;
 
         private CellGridView _cellGridView;
+
+        [ContextMenu("Start view model")]
+        public void StartViewModel()
+        {
+            InitializeModel();
+            SetUpView(_cellGrid);
+        }
 
         public void InitializeModel()
         {
@@ -31,13 +39,8 @@ namespace View
         {
             _cellGridView = cellGridViewGenerator.GenerateGrid(cellGridSize);
             chipViewFiller.FillCellGridView(_cellGridView, cellGrid);
-        }
 
-        [ContextMenu("Start view model")]
-        public void StartViewModel()
-        {
-            InitializeModel();
-            SetUpView(_cellGrid);
+            cellViewsConnector.SetUp(_cellConnector, _cellGrid);
         }
 
 

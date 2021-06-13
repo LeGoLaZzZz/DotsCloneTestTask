@@ -10,8 +10,10 @@ namespace View
         [SerializeField] private ChipView chip;
 
 
+        public bool IsEmpty => chip==null;
         public Vector2Int Coords => coords;
         public Vector2 Size => transform.localScale;
+        public ChipView Chip => chip;
 
         public void SetUp(int x, int y)
         {

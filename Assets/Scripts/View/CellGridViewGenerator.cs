@@ -33,7 +33,7 @@ namespace View
             else gridParent.DestroyImmediateChildren();
 
             if (!cellGridView) cellGridView = gridParent.gameObject.AddComponent<CellGridView>();
-
+            this.gridSize = gridSize;
             cellGridView.SetUp(gridSize);
 
             var stepVertical = new Vector3(0, cellViewPrefab.Size.y + spacing.y, 0);
@@ -72,7 +72,5 @@ namespace View
             cellView.name += $" ({x},{y})";
             return cellView;
         }
-
-
     }
 }

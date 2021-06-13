@@ -1,5 +1,8 @@
+using System;
+
 namespace Model
 {
+    [Serializable]
     public class Cell
     {
         public int X { get; private set; }
