@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a89e89dfb964a348f1d9d9130ffa477, type: 3}
+  m_Name: ChipTypesConfig
+  m_EditorClassIdentifier: 
+  chipTypeConfigs:
+  - chipType: 0
+    color: {r: 0.5568628, g: 0.3647059, b: 0.6666667, a: 1}
+  - chipType: 1
+    color: {r: 0.86274517, g: 0.81568635, b: 0.1254902, a: 1}
+  - chipType: 2
+    color: {r: 0.89019614, g: 0.3647059, b: 0.25882354, a: 1}
+  - chipType: 3
+    color: {r: 0.5058824, g: 0.8745099, b: 0.53333336, a: 1}
+  - chipType: 4
+    color: {r: 0.5058824, g: 0.7019608, b: 1, a: 1}
