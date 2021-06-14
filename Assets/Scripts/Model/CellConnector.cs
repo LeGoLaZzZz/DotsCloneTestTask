@@ -9,14 +9,17 @@ namespace Model
     public class CellConnector
     {
         public int connectMinCount;
+
         private ChipsDropper _chipsDropper;
         private CellGrid _cellGrid;
 
-        public CellConnector(CellGrid cellGrid, int connectMinCount = 2)
+        public event Action<int> ChipsRemovedEvent;
+
+        public CellConnector(CellGrid cellGrid,ChipsDropper chipsDropper, int connectMinCount = 2)
         {
             this.connectMinCount = connectMinCount;
             _cellGrid = cellGrid;
-            _chipsDropper = new ChipsDropper(_cellGrid);
+            _chipsDropper = chipsDropper;
         }
 
 
@@ -52,10 +55,7 @@ namespace Model
                 var cellConnectionCondition = CellConnectionCondition(prevCell, cell);
                 if (cellConnectionCondition != ConnectStatus.Success)
                 {
-                    //Debug.Log($"CantConnect [{prevCell.X} {prevCell.Y}][{cell.X} {cell.Y}]");
-                    Debug.Log(
-                        $"CantConnect [{prevCell.X} {prevCell.Y}][{cell.X} {cell.Y} - {cellConnectionCondition.ToString()}]");
-
+                    // Debug.Log($"CantConnect [{prevCell.X} {prevCell.Y}][{cell.X} {cell.Y} - {cellConnectionCondition.ToString()}]");
                     return false;
                 }
 
@@ -100,7 +100,7 @@ namespace Model
 
             var dropChanges = _chipsDropper.DropChips();
             var spawnNewChanges = _chipsDropper.SpawnNewChips();
-
+            ChipsRemovedEvent?.Invoke(removed.Count);
             return new GridChanges(dropChanges, spawnNewChanges, removed);
         }
 

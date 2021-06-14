@@ -17,8 +17,8 @@ namespace Model
         public void InitCellGrid()
         {
             CellGrid = new CellGrid(cellGridSize);
-            CellConnector = new CellConnector(CellGrid);
             ChipsDropper = new ChipsDropper(CellGrid);
+            CellConnector = new CellConnector(CellGrid, ChipsDropper);
             LogGrid();
         }
 

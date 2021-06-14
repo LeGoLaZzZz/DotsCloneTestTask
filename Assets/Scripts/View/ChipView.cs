@@ -8,7 +8,6 @@ namespace View
     public class ChipView : MonoBehaviour
     {
         [Header("Settings")]
-        // [SerializeField] private float dropSpeed = 1f;
         [SerializeField] private float dropTime = 1f;
         [SerializeField] private AnimationCurve dropProgress;
         [SerializeField] private float destroyDelay = 0.1f;
@@ -37,11 +36,7 @@ namespace View
 
         public void Drop(Vector3 startPoint, Vector3 endPoint)
         {
-            var distance = Vector3.Distance(startPoint, endPoint);
-            // var fullTime = distance / dropSpeed;
-            var fullTime = dropTime;
-
-            StartCoroutine(DropCoroutine(startPoint, endPoint, fullTime));
+            StartCoroutine(DropCoroutine(startPoint, endPoint, dropTime));
         }
 
         private void Awake()
@@ -61,7 +56,6 @@ namespace View
             }
 
             transform.position = endPoint;
-            yield break;
         }
     }
 }
