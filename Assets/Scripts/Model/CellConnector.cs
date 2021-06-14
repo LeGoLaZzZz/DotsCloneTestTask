@@ -27,18 +27,22 @@ namespace Model
 
         public bool CanConnect(IEnumerable<Cell> cells)
         {
-            var sb = new StringBuilder();
-            
-            foreach (var cell in cells)
+
+            //For checking repeated connections
+            var distinct = cells.Distinct().ToList();
+            var count = distinct.Count;
+            var connections = new bool[count * count];
+            var cellsId = new Dictionary<Cell, int>();
+
+            for (var j = 0; j < distinct.Count; j++)
             {
-                sb.Append($"{cell.X} {cell.Y} \n");
+                cellsId.Add(distinct[j], j);
             }
 
-            Debug.LogWarning(sb.ToString());
-            
             Cell prevCell = null;
             foreach (var cell in cells)
             {
+               
                 if (prevCell == null)
                 {
                     prevCell = cell;
@@ -50,6 +54,17 @@ namespace Model
                     //Debug.Log($"CantConnect [{prevCell.X} {prevCell.Y}][{cell.X} {cell.Y}]");
                     return false;
                 }
+
+                if (connections[cellsId[cell] + cellsId[prevCell] * count])//same connection twice is forbidden
+                {
+                    return false; 
+                }
+                else
+                {
+                    connections[cellsId[prevCell] + cellsId[cell] * count] = true;
+                    connections[cellsId[cell] + cellsId[prevCell] * count] = true;
+                }
+
 
                 prevCell = cell;
             }
@@ -85,13 +100,14 @@ namespace Model
             if (a.IsEmpty || b.IsEmpty) return false;
             if (a == b)
             {
-                Debug.Log("Cant same "+ a.X +" "+b.Y);
+                Debug.Log("Cant same " + a.X + " " + b.Y);
                 return false;
             }
+
             if (a.CurrentChip.ChipType != b.CurrentChip.ChipType) return false;
             if (!CellUtils.IsNeighbour(a, b))
             {
-                Debug.Log("Cant not neighbours "+ a.X +" "+b.Y);
+                Debug.Log("Cant not neighbours " + a.X + " " + b.Y);
                 return false;
             }
 
