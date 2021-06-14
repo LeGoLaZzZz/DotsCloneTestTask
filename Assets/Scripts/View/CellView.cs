@@ -56,5 +56,10 @@ namespace View
             DetachChipView();
             cellViewChipScored.Invoke(new CellViewChipScoredEventArgs());
         }
+
+        public void InteractStartedView()
+        {
+            chip.InteractStartedView();
+        }
     }
 }

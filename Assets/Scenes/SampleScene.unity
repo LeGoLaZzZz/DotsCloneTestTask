@@ -554,7 +554,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 158463298}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 2
 --- !u!212 &158463298
@@ -811,7 +811,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 259754597}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 1
 --- !u!212 &259754597
@@ -1068,7 +1068,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 282736352}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 1
 --- !u!212 &282736352
@@ -1211,7 +1211,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 368233973}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 1
 --- !u!212 &368233973
@@ -1354,7 +1354,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 378658999}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 3
 --- !u!212 &378658999
@@ -1462,7 +1462,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1637,23 +1637,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &479221686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 345631490001436189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a2d4c2aca5f4d43961b207d1185f743, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cellViewConnectionsChannel: {fileID: 11400000, guid: 1b2139412771bec489f6f6245f6fc63d, type: 2}
-  chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  inputChannel: {fileID: 11400000, guid: e5dc92e235f46704f935fe1d7c32d3d4, type: 2}
-  gameCamera: {fileID: 963194227}
-  connectionLine: {fileID: 493187939}
 --- !u!1 &479257508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1809,7 +1792,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 481379012}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 0
 --- !u!212 &481379012
@@ -1863,52 +1846,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &493187937
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 493187938}
-  - component: {fileID: 493187939}
-  m_Layer: 0
-  m_Name: ConnectionLine
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &493187938
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 493187937}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 345631490001436187}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &493187939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 493187937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5872957110ce43d0b02e5a0d13089ca5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  width: 0.5
-  lineSegmentPrefab: {fileID: 7697193132137392998, guid: 53adb076c10d847419cd5b92b7ba98f7, type: 3}
-  line: []
 --- !u!1 &509767817
 GameObject:
   m_ObjectHideFlags: 0
@@ -1998,7 +1935,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 509767820}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 4
 --- !u!212 &509767820
@@ -2532,7 +2469,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 642941087}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 2
 --- !u!212 &642941087
@@ -2675,7 +2612,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 690338418}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 3
 --- !u!212 &690338418
@@ -2818,7 +2755,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 706280521}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 4
 --- !u!212 &706280521
@@ -2961,7 +2898,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 732108330}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 2
 --- !u!212 &732108330
@@ -3332,7 +3269,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 845206909}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 0
 --- !u!212 &845206909
@@ -3589,7 +3526,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 912702833}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 1
 --- !u!212 &912702833
@@ -3776,7 +3713,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 925616748}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 3
 --- !u!212 &925616748
@@ -4033,7 +3970,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 943828019}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 3
 --- !u!212 &943828019
@@ -4176,7 +4113,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 947167441}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 4
 --- !u!212 &947167441
@@ -4319,7 +4256,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 950237519}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 1
 --- !u!212 &950237519
@@ -4659,7 +4596,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 963351479}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 3
 --- !u!212 &963351479
@@ -4802,7 +4739,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 966138192}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 3
 --- !u!212 &966138192
@@ -5104,7 +5041,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 1064092485}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 3
 --- !u!212 &1064092485
@@ -5655,7 +5592,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 1173878980}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 3
 --- !u!212 &1173878980
@@ -5798,7 +5735,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 1175171537}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 1
 --- !u!212 &1175171537
@@ -5941,7 +5878,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 1232379220}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 4
 --- !u!212 &1232379220
@@ -6084,7 +6021,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 1249653085}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 3
 --- !u!212 &1249653085
@@ -6455,7 +6392,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 1288481654}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 0
 --- !u!212 &1288481654
@@ -6712,7 +6649,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 1332347940}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 0
 --- !u!212 &1332347940
@@ -6855,7 +6792,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 1343622860}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 4
 --- !u!212 &1343622860
@@ -7226,7 +7163,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 1389039229}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 4
 --- !u!212 &1389039229
@@ -7483,7 +7420,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 1404066566}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 2
 --- !u!212 &1404066566
@@ -7740,7 +7677,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 1430485877}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 4
 --- !u!212 &1430485877
@@ -7997,7 +7934,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 1519447641}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 2
 --- !u!212 &1519447641
@@ -8502,7 +8439,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 1793055778}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 0
 --- !u!212 &1793055778
@@ -8645,7 +8582,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 1814016605}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 2
 --- !u!212 &1814016605
@@ -9244,7 +9181,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 1864223594}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 0
 --- !u!212 &1864223594
@@ -9658,7 +9595,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 2040117707}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 4
 --- !u!212 &2040117707
@@ -9801,7 +9738,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  spriteRenderer: {fileID: 2045110383}
+  spriteRenderers: []
   animator: {fileID: 0}
   chipType: 2
 --- !u!212 &2045110383
@@ -10334,35 +10271,69 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &345631490001436187
+--- !u!4 &345631490001436187 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7042842542731069958, guid: ac4d52a709512874db5c9db7bc4827ea, type: 3}
+  m_PrefabInstance: {fileID: 7311275102988399645}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 345631490001436189}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 493187938}
-  m_Father: {fileID: 1703976217}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &345631490001436189
-GameObject:
+--- !u!1001 &7311275102988399645
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 345631490001436187}
-  - component: {fileID: 479221686}
-  m_Layer: 0
-  m_Name: ConnectionLineDrawer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1703976217}
+    m_Modifications:
+    - target: {fileID: 7042842542731069952, guid: ac4d52a709512874db5c9db7bc4827ea, type: 3}
+      propertyPath: m_Name
+      value: ConnectionLineDrawer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042842542731069958, guid: ac4d52a709512874db5c9db7bc4827ea, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042842542731069958, guid: ac4d52a709512874db5c9db7bc4827ea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042842542731069958, guid: ac4d52a709512874db5c9db7bc4827ea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042842542731069958, guid: ac4d52a709512874db5c9db7bc4827ea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042842542731069958, guid: ac4d52a709512874db5c9db7bc4827ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042842542731069958, guid: ac4d52a709512874db5c9db7bc4827ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042842542731069958, guid: ac4d52a709512874db5c9db7bc4827ea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042842542731069958, guid: ac4d52a709512874db5c9db7bc4827ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042842542731069958, guid: ac4d52a709512874db5c9db7bc4827ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042842542731069958, guid: ac4d52a709512874db5c9db7bc4827ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042842542731069958, guid: ac4d52a709512874db5c9db7bc4827ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311275103182365611, guid: ac4d52a709512874db5c9db7bc4827ea, type: 3}
+      propertyPath: gameCamera
+      value: 
+      objectReference: {fileID: 963194227}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ac4d52a709512874db5c9db7bc4827ea, type: 3}

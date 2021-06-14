@@ -101,8 +101,17 @@ namespace ViewModel.CellConnection
         {
             AddInteractionCell(newCell);
             var canConnect = _cellConnector.CanConnect(interactingCells);
-            if (!canConnect) RemoveInteractionCell(newCell);
-            else cellViewConnectionsChannel.CellAddedInvoke(newCell);
+            
+            if (!canConnect)
+            {
+                RemoveInteractionCell(newCell);
+            }
+            else
+            {
+                newCell.InteractStartedView();
+                cellViewConnectionsChannel.CellAddedInvoke(newCell);
+            }
+            
             return canConnect;
         }
 
