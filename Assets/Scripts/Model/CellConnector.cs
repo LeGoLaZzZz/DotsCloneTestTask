@@ -8,7 +8,7 @@ namespace Model
 {
     public class CellConnector
     {
-        public int connectMinCount;
+        private int _connectMinCount;
 
         private ChipsDropper _chipsDropper;
         private CellGrid _cellGrid;
@@ -17,7 +17,7 @@ namespace Model
 
         public CellConnector(CellGrid cellGrid,ChipsDropper chipsDropper, int connectMinCount = 2)
         {
-            this.connectMinCount = connectMinCount;
+            _connectMinCount = connectMinCount;
             _cellGrid = cellGrid;
             _chipsDropper = chipsDropper;
         }
@@ -25,7 +25,7 @@ namespace Model
 
         public bool CanConnectScore(IEnumerable<Cell> cells, out bool isCycleConnection)
         {
-            var canConnect = cells.Count() >= connectMinCount && CanConnect(cells);
+            var canConnect = cells.Count() >= _connectMinCount && CanConnect(cells);
             isCycleConnection = !CheckUnique(cells);
             return canConnect;
         }

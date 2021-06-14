@@ -20,6 +20,11 @@ namespace ViewModel
             _scoreCalculator.ScoreChangedEvent += OnScoreChanged;
         }
 
+        private void OnApplicationQuit()
+        {
+            PlayerPrefsController.SetScore(_scoreCalculator.Score); //couldnt detect ScoreCalculator destructor on exit playmode
+        }
+
         private void OnScoreChanged(int score)
         {
             SetScoreText(score);
@@ -28,11 +33,6 @@ namespace ViewModel
         private void SetScoreText(int score)
         {
             scoreText.text = string.Format(scoreFormat, score);
-        }
-
-        private void OnApplicationQuit()
-        {
-            PlayerPrefsController.SetScore(_scoreCalculator.Score);//couldnt detect ScoreCalculator destructor on exit playmode
         }
     }
 }

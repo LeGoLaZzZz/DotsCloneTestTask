@@ -8,6 +8,7 @@ namespace ViewModel
 {
     public class ModelView : MonoBehaviour
     {
+        [Header("View links")]
         [SerializeField] private CellGridViewGenerator cellGridViewGenerator;
         [SerializeField] private ChipViewFiller chipViewFiller;
         [SerializeField] private CellViewsConnector cellViewsConnector;

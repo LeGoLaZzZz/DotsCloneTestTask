@@ -44,6 +44,21 @@ namespace Model
             to.SetChip(chip);
         }
 
+
+        private void InitializeGrid(Vector2Int gridSize)
+        {
+            _cellGrid = new Cell[gridSize.x, gridSize.x];
+
+            for (int x = 0; x < gridSize.x; x++)
+            {
+                for (int y = 0; y < gridSize.y; y++)
+                {
+                    _cellGrid[x, y] = new Cell(x, y);
+                }
+            }
+        }
+
+
         public override string ToString()
         {
             var sb = new StringBuilder();
@@ -64,19 +79,6 @@ namespace Model
             }
 
             return sb.ToString();
-        }
-
-        private void InitializeGrid(Vector2Int gridSize)
-        {
-            _cellGrid = new Cell[gridSize.x, gridSize.x];
-
-            for (int x = 0; x < gridSize.x; x++)
-            {
-                for (int y = 0; y < gridSize.y; y++)
-                {
-                    _cellGrid[x, y] = new Cell(x, y);
-                }
-            }
         }
     }
 }

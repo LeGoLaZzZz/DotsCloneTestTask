@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Model
 {
+    // Just for testing on scene
     public class ModelTester : MonoBehaviour
     {
         public Vector2Int cellGridSize = new Vector2Int(6, 6);

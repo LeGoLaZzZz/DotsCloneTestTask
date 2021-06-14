@@ -16,10 +16,6 @@ namespace View
         public Vector3 StartPoint => startPoint;
         public Vector3 EndPoint => endPoint;
 
-        private void Awake()
-        {
-            _transform = transform;
-        }
 
         public void SetUp(Vector3 startPoint, Vector3 endPoint, float width, Color color)
         {
@@ -35,10 +31,7 @@ namespace View
             this.startPoint = startPoint;
 
             _transform.position = startPoint;
-
-            // _transform.LookAt(endPoint);
-            // _transform.Rotate(Vector3.Angle(_transform.forward, endPoint - _transform.position), 0, 0);
-            _transform.localRotation = Quaternion.LookRotation(endPoint - _transform.position,_transform.up);
+            _transform.localRotation = Quaternion.LookRotation(endPoint - _transform.position, _transform.up);
             var length = Vector3.Distance(startPoint, endPoint);
             SetSize(length, width);
         }
@@ -56,6 +49,11 @@ namespace View
         public void SetColor(Color color)
         {
             spriteRenderer.color = color;
+        }
+
+        private void Awake()
+        {
+            _transform = transform;
         }
 
         private void SetSize(float length, float width)
