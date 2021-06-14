@@ -25,7 +25,7 @@ namespace View
         }
     }
 
-    [CreateAssetMenu(fileName = "CellViewInteractChannel", menuName = "Channels/CellViewInteractChannel", order = 0)]
+    [CreateAssetMenu(fileName = "CellViewInteractChannel", menuName = "Channels/ViewModel/CellViewInteractChannel", order = 0)]
     public class CellViewInteractChannel : ScriptableObject
     {
         public CellInteractionStartedEvent cellInteractionStartedEvent = new CellInteractionStartedEvent();

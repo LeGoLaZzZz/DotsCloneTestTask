@@ -27,7 +27,6 @@ namespace Model
 
         public bool CanConnect(IEnumerable<Cell> cells)
         {
-
             //For checking repeated connections
             var distinct = cells.Distinct().ToList();
             var count = distinct.Count;
@@ -42,7 +41,6 @@ namespace Model
             Cell prevCell = null;
             foreach (var cell in cells)
             {
-               
                 if (prevCell == null)
                 {
                     prevCell = cell;
@@ -55,9 +53,9 @@ namespace Model
                     return false;
                 }
 
-                if (connections[cellsId[cell] + cellsId[prevCell] * count])//same connection twice is forbidden
+                if (connections[cellsId[cell] + cellsId[prevCell] * count]) //same connection twice is forbidden
                 {
-                    return false; 
+                    return false;
                 }
                 else
                 {
@@ -98,18 +96,10 @@ namespace Model
         private bool CellConnectionCondition(Cell a, Cell b)
         {
             if (a.IsEmpty || b.IsEmpty) return false;
-            if (a == b)
-            {
-                Debug.Log("Cant same " + a.X + " " + b.Y);
-                return false;
-            }
+            if (a == b) return false;
 
             if (a.CurrentChip.ChipType != b.CurrentChip.ChipType) return false;
-            if (!CellUtils.IsNeighbour(a, b))
-            {
-                Debug.Log("Cant not neighbours " + a.X + " " + b.Y);
-                return false;
-            }
+            if (!CellUtils.IsNeighbour(a, b)) return false;
 
             return true;
         }

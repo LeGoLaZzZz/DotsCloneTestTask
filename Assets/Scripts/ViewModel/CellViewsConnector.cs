@@ -7,45 +7,11 @@ using UnityEngine.Events;
 
 namespace View
 {
-    [Serializable]
-    public class CellAddedEvent : UnityEvent<CellAddedEventArgs>
-    {
-    }
-
-    [Serializable]
-    public class CellAddedEventArgs
-    {
-        public CellView cellView;
-
-        public CellAddedEventArgs(CellView cellView)
-        {
-            this.cellView = cellView;
-        }
-    }
-
-    [Serializable]
-    public class CellRemovedEvent : UnityEvent<CellRemovedEventArgs>
-    {
-    }
-
-    [Serializable]
-    public class CellRemovedEventArgs
-    {
-    }
-
-    [Serializable]
-    public class ConnectionStartedEvent : UnityEvent
-    {
-    }
-
-    public class ConnectionEndedEvent : UnityEvent
-    {
-    }
-
     public class CellViewsConnector : MonoBehaviour
     {
         [Header("Links")]
         [SerializeField] private CellViewInteractChannel cellViewInteractChannel;
+        [SerializeField] private CellViewConnectionsChannel cellViewConnectionsChannel;
 
         [Header("Monitoring")]
         [SerializeField] private List<CellView> interactingCellViews;
@@ -55,23 +21,11 @@ namespace View
         private CellConnector _cellConnector;
         private CellGrid _cellGrid;
 
-
-        public bool IsConnecting => isConnecting;
-        public ReadOnlyCollection<CellView> InteractingCellViews => interactingCellViews.AsReadOnly();
-
-
-        public CellAddedEvent cellAdded = new CellAddedEvent();
-        public CellRemovedEvent cellRemoved = new CellRemovedEvent();
-        public ConnectionStartedEvent connectionStartedEvent = new ConnectionStartedEvent();
-        public ConnectionEndedEvent connectionEndedEvent = new ConnectionEndedEvent();
-
-
         public void SetUp(CellConnector cellConnector, CellGrid cellGrid)
         {
             _cellConnector = cellConnector;
             _cellGrid = cellGrid;
         }
-
 
         private void OnEnable()
         {
@@ -88,7 +42,7 @@ namespace View
 
         private void OnInteractStopped()
         {
-            if (_cellConnector.CanConnectScore(interactingCells,out var isCycleConnection))
+            if (_cellConnector.CanConnectScore(interactingCells, out var isCycleConnection))
             {
                 Debug.Log("Connection good");
                 ClearCells();
@@ -98,8 +52,9 @@ namespace View
                 Debug.Log("Connection bad");
                 ClearCells();
             }
-            isConnecting = false;
-            connectionEndedEvent.Invoke();
+
+            SetConnecting(false);
+            cellViewConnectionsChannel.ConnectionEndedInvoke();
         }
 
 
@@ -131,7 +86,7 @@ namespace View
             if (interactingCellViews[interactingCellViews.Count - 2] == newCell)
             {
                 RemoveInteractionCell(interactingCellViews[interactingCellViews.Count - 1]);
-                cellRemoved.Invoke(new CellRemovedEventArgs());
+                cellViewConnectionsChannel.CellRemovedInvoke();
                 return true;
             }
 
@@ -146,8 +101,8 @@ namespace View
                 return;
             }
 
-            isConnecting = true;
-            connectionStartedEvent.Invoke();
+            SetConnecting(true);
+            cellViewConnectionsChannel.ConnectionStartedInvoke();
             ClearCells();
             TryAddInteractionCell(cell);
         }
@@ -158,7 +113,7 @@ namespace View
             AddInteractionCell(newCell);
             var canConnect = _cellConnector.CanConnect(interactingCells);
             if (!canConnect) RemoveInteractionCell(newCell);
-            else cellAdded.Invoke(new CellAddedEventArgs(newCell));
+            else cellViewConnectionsChannel.CellAddedInvoke(newCell);
             return canConnect;
         }
 
@@ -185,13 +140,18 @@ namespace View
                     break;
                 }
             }
-            
         }
 
         private void ClearCells()
         {
             interactingCells = new List<Cell>();
             interactingCellViews = new List<CellView>();
+        }
+
+        private void SetConnecting(bool isConnecting)
+        {
+            this.isConnecting = isConnecting;
+            cellViewConnectionsChannel.SetConnecting(isConnecting);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace View
     public class ConnectedCellsLineDrawer : MonoBehaviour
     {
         [Header("Links")]
-        [SerializeField] private CellViewsConnector cellViewsConnector;
+        [SerializeField] private CellViewConnectionsChannel cellViewConnectionsChannel;
         [SerializeField] private ChipTypesConfig chipTypesConfig;
         [SerializeField] private InputChannel inputChannel;
         [SerializeField] private Camera gameCamera;
@@ -19,15 +19,14 @@ namespace View
 
         private void OnEnable()
         {
-            cellViewsConnector.cellAdded.AddListener(OnCellAdded);
-            cellViewsConnector.cellRemoved.AddListener(OnCellRemoved);
-            cellViewsConnector.connectionStartedEvent.AddListener(OnConnectionStarted);
-            cellViewsConnector.connectionEndedEvent.AddListener(OnConnectionEnded);
+            cellViewConnectionsChannel.cellAdded.AddListener(OnCellAdded);
+            cellViewConnectionsChannel.cellRemoved.AddListener(OnCellRemoved);
+            cellViewConnectionsChannel.connectionEndedEvent.AddListener(OnConnectionEnded);
         }
 
         private void Update()
         {
-            if (cellViewsConnector.IsConnecting && connectionLine.SegmentsCount > 0)
+            if (cellViewConnectionsChannel.IsConnecting && connectionLine.SegmentsCount > 0)
             {
                 connectionLine.GetLastSegment().SetEndPoint(GetInteractWorldPoint());
             }
@@ -35,16 +34,11 @@ namespace View
 
         private void OnDisable()
         {
-            cellViewsConnector.cellAdded.RemoveListener(OnCellAdded);
-            cellViewsConnector.cellRemoved.RemoveListener(OnCellRemoved);
-            cellViewsConnector.connectionStartedEvent.RemoveListener(OnConnectionStarted);
-            cellViewsConnector.connectionEndedEvent.RemoveListener(OnConnectionEnded);
+            cellViewConnectionsChannel.cellAdded.RemoveListener(OnCellAdded);
+            cellViewConnectionsChannel.cellRemoved.RemoveListener(OnCellRemoved);
+            cellViewConnectionsChannel.connectionEndedEvent.RemoveListener(OnConnectionEnded);
         }
 
-        private void OnConnectionStarted()
-        {
-            // connectionLine.gameObject.SetActive(true);
-        }
 
         private void OnConnectionEnded()
         {

@@ -9,7 +9,7 @@ namespace View
 {
     public class CellViewsInteractDetection : MonoBehaviour
     {
-        [Header("Links")]
+        [Header("Settings")]
         [SerializeField] private int maxRaycastTargetCount = 10;
 
         [Header("Links")]
@@ -28,12 +28,6 @@ namespace View
             _raycastHits = new RaycastHit[maxRaycastTargetCount];
         }
 
-        // private void OnEnable()
-        // {
-        //     inputChannel.interactButtonPressedEvent.AddListener(OnInteractPressed);
-        //     inputChannel.interactButtonReleasedEvent.AddListener(OnInteractReleased);
-        // }
-
         private void Update()
         {
             isSearching = inputChannel.IsInteracting;
@@ -46,13 +40,6 @@ namespace View
                 if (TryFindCell(inputChannel.InteractPosition, out var cellView)) StartInteract(cellView);
             }
         }
-
-        // private void OnDisable()
-        // {
-        //     inputChannel.interactButtonPressedEvent.RemoveListener(OnInteractPressed);
-        //     inputChannel.interactButtonReleasedEvent.RemoveListener(OnInteractReleased);
-        // }
-
 
         private bool TryFindCell(Vector2 screenPoint, out CellView cellView)
         {

@@ -1986,7 +1986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a2d4c2aca5f4d43961b207d1185f743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellViewsConnector: {fileID: 1703976218}
+  cellViewConnectionsChannel: {fileID: 11400000, guid: 1b2139412771bec489f6f6245f6fc63d, type: 2}
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
   inputChannel: {fileID: 11400000, guid: e5dc92e235f46704f935fe1d7c32d3d4, type: 2}
   gameCamera: {fileID: 963194227}
@@ -5495,18 +5495,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellViewInteractChannel: {fileID: 11400000, guid: 576ac5c8b0df4304ab46229b68106d77, type: 2}
+  cellViewConnectionsChannel: {fileID: 11400000, guid: 1b2139412771bec489f6f6245f6fc63d, type: 2}
   interactingCellViews: []
   interactingCells: []
   isConnecting: 0
-  cellAdded:
-    m_PersistentCalls:
-      m_Calls: []
-  cellRemoved:
-    m_PersistentCalls:
-      m_Calls: []
-  connectionStartedEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1703976219
 MonoBehaviour:
   m_ObjectHideFlags: 0

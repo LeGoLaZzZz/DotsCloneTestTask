@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f766d83ce7e486db27c1ab8682f7c3d, type: 3}
+  m_Name: CellViewConnectionsChannel
+  m_EditorClassIdentifier: 
+  isConnecting: 0
+  cellAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  cellRemoved:
+    m_PersistentCalls:
+      m_Calls: []
+  connectionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
