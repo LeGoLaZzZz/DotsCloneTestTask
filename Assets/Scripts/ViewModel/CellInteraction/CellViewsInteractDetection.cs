@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
-using Model;
 using PlayerInput;
 using UnityEngine;
-using UnityEngine.Events;
+using View;
 
-namespace View
+namespace ViewModel.CellInteraction
 {
     public class CellViewsInteractDetection : MonoBehaviour
     {

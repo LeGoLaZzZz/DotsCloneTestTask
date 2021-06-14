@@ -1,6 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using Model;
 using UnityEngine;
 
 namespace Model
@@ -14,7 +15,8 @@ namespace Model
         public CellConnector(CellGrid cellGrid, int connectMinCount = 2)
         {
             this.connectMinCount = connectMinCount;
-            _chipsDropper = new ChipsDropper(cellGrid);
+            _cellGrid = cellGrid;
+            _chipsDropper = new ChipsDropper(_cellGrid);
         }
 
 
@@ -47,9 +49,13 @@ namespace Model
                     continue;
                 }
 
-                if (!CellConnectionCondition(prevCell, cell))
+                var cellConnectionCondition = CellConnectionCondition(prevCell, cell);
+                if (cellConnectionCondition != ConnectStatus.Success)
                 {
                     //Debug.Log($"CantConnect [{prevCell.X} {prevCell.Y}][{cell.X} {cell.Y}]");
+                    Debug.Log(
+                        $"CantConnect [{prevCell.X} {prevCell.Y}][{cell.X} {cell.Y} - {cellConnectionCondition.ToString()}]");
+
                     return false;
                 }
 
@@ -71,37 +77,42 @@ namespace Model
             return true;
         }
 
-        public bool TryConnect(IEnumerable<Cell> cells)
+        public GridChanges TryConnect(IEnumerable<Cell> cells)
         {
-            if (!CanConnectScore(cells, out var isCycleConnection)) return false;
+            if (!CanConnectScore(cells, out var isCycleConnection)) return null;
+
+            var changes = new GridChanges[_cellGrid.GridSize.x * _cellGrid.GridSize.y];
+            List<Cell> removed;
 
             if (!isCycleConnection)
             {
+                removed = new List<Cell>();
                 foreach (var cell in cells)
                 {
                     cell.RemoveChip();
+                    removed.Add(cell);
                 }
             }
             else
             {
-                RemoveAllColor(cells.First().CurrentChip.ChipType);
+                removed = RemoveAllColor(cells.First().CurrentChip.ChipType);
             }
 
-            _chipsDropper.DropChips();
-            _chipsDropper.SpawnNewChips();
+            var dropChanges = _chipsDropper.DropChips();
+            var spawnNewChanges = _chipsDropper.SpawnNewChips();
 
-            return true;
+            return new GridChanges(dropChanges, spawnNewChanges, removed);
         }
 
-        private bool CellConnectionCondition(Cell a, Cell b)
+        private ConnectStatus CellConnectionCondition(Cell a, Cell b)
         {
-            if (a.IsEmpty || b.IsEmpty) return false;
-            if (a == b) return false;
+            if (a.IsEmpty || b.IsEmpty) return ConnectStatus.EmptyCell;
+            if (a == b) return ConnectStatus.SameCell;
 
-            if (a.CurrentChip.ChipType != b.CurrentChip.ChipType) return false;
-            if (!CellUtils.IsNeighbour(a, b)) return false;
+            if (a.CurrentChip.ChipType != b.CurrentChip.ChipType) return ConnectStatus.DifferentColors;
+            if (!CellUtils.IsNeighbour(a, b)) return ConnectStatus.NotNeighbours;
 
-            return true;
+            return ConnectStatus.Success;
         }
 
         private bool CheckUnique(IEnumerable<Cell> cells)
@@ -112,9 +123,10 @@ namespace Model
             return allDifferent;
         }
 
-        private void RemoveAllColor(ChipType chipType)
+        private List<Cell> RemoveAllColor(ChipType chipType)
         {
             Cell cell;
+            var removed = new List<Cell>();
 
             for (var x = 0; x < _cellGrid.GridSize.x; x++)
             {
@@ -124,9 +136,39 @@ namespace Model
                     if (cell.CurrentChip.ChipType == chipType)
                     {
                         cell.RemoveChip();
+                        removed.Add(cell);
                     }
                 }
             }
+
+            return removed;
         }
+
+
+        private enum ConnectStatus
+        {
+            Other,
+            Success,
+            SameCell,
+            NotNeighbours,
+            DifferentColors,
+            EmptyCell,
+        }
+    }
+}
+
+[Serializable]
+public class GridChanges
+{
+    public List<ChipsDropper.DropChange> dropChanges;
+    public List<ChipsDropper.SpawnNewChange> spawnNewChanges;
+    public List<Cell> removedChips;
+
+    public GridChanges(List<ChipsDropper.DropChange> dropChanges, List<ChipsDropper.SpawnNewChange> spawnNewChanges,
+        List<Cell> removedChips)
+    {
+        this.dropChanges = dropChanges;
+        this.spawnNewChanges = spawnNewChanges;
+        this.removedChips = removedChips;
     }
 }

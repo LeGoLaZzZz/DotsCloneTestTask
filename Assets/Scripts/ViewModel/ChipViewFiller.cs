@@ -1,8 +1,9 @@
 using Model;
 using UnityEngine;
 using Utils;
+using View;
 
-namespace View
+namespace ViewModel
 {
     public class ChipViewFiller : MonoBehaviour
     {
@@ -23,6 +24,11 @@ namespace View
             }
         }
 
+        public ChipView GetChipView(ChipType chipType)
+        {
+            return GetChipView(chipType, chipsParent);
+        }
+        
         public ChipView GetChipView(ChipType chipType, Transform parent)
         {
             var chipView = Instantiate(chipViewPrefab, parent, false);

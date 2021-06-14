@@ -9,6 +9,7 @@ namespace View
         [SerializeField] private Vector2Int gridSize;
 
         public CellView[] Cells => cells;
+        public Vector2Int Size => gridSize;
 
         public CellView GetCellView(int x, int y)
         {
@@ -30,5 +31,6 @@ namespace View
         {
             SetCellView(cellView.Coords.x, cellView.Coords.y, cellView);
         }
+        
     }
 }

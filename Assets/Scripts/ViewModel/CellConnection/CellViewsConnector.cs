@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using Model;
 using UnityEngine;
-using UnityEngine.Events;
+using View;
+using ViewModel.CellInteraction;
 
-namespace View
+namespace ViewModel.CellConnection
 {
     public class CellViewsConnector : MonoBehaviour
     {
@@ -42,19 +41,9 @@ namespace View
 
         private void OnInteractStopped()
         {
-            if (_cellConnector.CanConnectScore(interactingCells, out var isCycleConnection))
-            {
-                Debug.Log("Connection good");
-                ClearCells();
-            }
-            else
-            {
-                Debug.Log("Connection bad");
-                ClearCells();
-            }
-
             SetConnecting(false);
-            cellViewConnectionsChannel.ConnectionEndedInvoke();
+            cellViewConnectionsChannel.ConnectionEndedInvoke(interactingCellViews, interactingCells);
+            ClearCells();
         }
 
 

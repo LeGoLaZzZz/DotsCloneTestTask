@@ -95,6 +95,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6b02177f91142e988a3d174a5d2494a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropTime: 0.3
+  dropProgress:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1.265211
+      outSlope: 1.265211
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.77315116
+      value: 0.9781993
+      inSlope: 0.61392814
+      outSlope: 0.61392814
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.032766964
+      outWeight: 0.31884187
+    - serializedVersion: 3
+      time: 0.9158988
+      value: 0.96005833
+      inSlope: 0.09558482
+      outSlope: 0.09558482
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.7629916
+      outWeight: 1
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.47492388
+      outSlope: 0.47492388
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  destroyDelay: 0.1
   chipTypesConfig: {fileID: 11400000, guid: 205a36dd59c65014d91956e9accafc30, type: 2}
-  chipType: 0
   spriteRenderer: {fileID: 2552188144062956209}
+  animator: {fileID: 0}
+  chipType: 0

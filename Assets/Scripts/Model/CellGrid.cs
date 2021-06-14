@@ -28,17 +28,22 @@ namespace Model
             return _cellGrid[x, y];
         }
 
-        
-        public void MoveChip(Vector2Int from,Vector2Int to)
-        {
-            var cellFrom = GetCell(from.x,from.y);
-            var cellTo = GetCell(to.x,to.y);
 
-            var chip = cellFrom.CurrentChip;
-            cellFrom.RemoveChip();
-            cellTo.SetChip(chip);
-            
+        public void MoveChip(Vector2Int from, Vector2Int to)
+        {
+            var cellFrom = GetCell(from.x, from.y);
+            var cellTo = GetCell(to.x, to.y);
+
+            MoveChip(cellFrom, cellTo);
         }
+
+        public void MoveChip(Cell from, Cell to)
+        {
+            var chip = from.CurrentChip;
+            from.RemoveChip();
+            to.SetChip(chip);
+        }
+
         public override string ToString()
         {
             var sb = new StringBuilder();

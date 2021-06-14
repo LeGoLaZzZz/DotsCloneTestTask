@@ -1,16 +1,29 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace View
 {
+    [Serializable]
+    public class CellViewChipScoredEvent : UnityEvent<CellViewChipScoredEventArgs>
+    {
+    }
+
+    [Serializable]
+    public class CellViewChipScoredEventArgs
+    {
+    }
+
+
     public class CellView : MonoBehaviour
     {
         [Header("Monitoring")]
         [SerializeField] private Vector2Int coords;
         [SerializeField] private ChipView chip;
 
+        public CellViewChipScoredEvent cellViewChipScored = new CellViewChipScoredEvent();
 
-        public bool IsEmpty => chip==null;
+        public bool IsEmpty => chip == null;
         public Vector2Int Coords => coords;
         public Vector2 Size => transform.localScale;
         public ChipView Chip => chip;
@@ -35,6 +48,13 @@ namespace View
         public void DetachChipView()
         {
             chip = null;
+        }
+
+        public void ScoreOutChip()
+        {
+            chip.ScoreOut();
+            DetachChipView();
+            cellViewChipScored.Invoke(new CellViewChipScoredEventArgs());
         }
     }
 }

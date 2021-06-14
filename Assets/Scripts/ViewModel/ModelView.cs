@@ -1,14 +1,19 @@
-using System;
 using Model;
 using UnityEngine;
+using View;
+using ViewModel.CellConnection;
+using ViewModel.ChipCollecting;
 
-namespace View
+namespace ViewModel
 {
     public class ModelView : MonoBehaviour
     {
         [SerializeField] private CellGridViewGenerator cellGridViewGenerator;
         [SerializeField] private ChipViewFiller chipViewFiller;
         [SerializeField] private CellViewsConnector cellViewsConnector;
+        [SerializeField] private ConnectionCollector connectionCollector;
+        [SerializeField] private ChipViewsDropper chipViewsDropper;
+        [SerializeField] private DropChipsGrid dropChipsGrid;
 
         public Vector2Int cellGridSize = new Vector2Int(6, 6);
 
@@ -24,7 +29,12 @@ namespace View
             InitializeModel();
             SetUpView(_cellGrid);
         }
-
+        [ContextMenu("Log model grid")]
+        public void LogGrid()
+        {
+            Debug.Log(_cellGrid.ToString());
+        }
+        
         public void InitializeModel()
         {
             _cellGrid = new CellGrid(cellGridSize);
@@ -41,6 +51,9 @@ namespace View
             chipViewFiller.FillCellGridView(_cellGridView, cellGrid);
 
             cellViewsConnector.SetUp(_cellConnector, _cellGrid);
+            connectionCollector.SetUp(_cellConnector, _cellGridView);
+            dropChipsGrid.SetUp(_cellGridView);
+            chipViewsDropper.SetUp(cellGrid, _cellGridView, dropChipsGrid, chipViewFiller);
         }
 
 

@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Model;
 using PlayerInput;
 using UnityEngine;
+using View;
 
-namespace View
+namespace ViewModel.CellConnection
 {
     public class ConnectedCellsLineDrawer : MonoBehaviour
     {
@@ -40,7 +37,7 @@ namespace View
         }
 
 
-        private void OnConnectionEnded()
+        private void OnConnectionEnded(ConnectionEndedEventArgs arg0)
         {
             connectionLine.RemoveAllSegments();
             connectionLine.gameObject.SetActive(false);

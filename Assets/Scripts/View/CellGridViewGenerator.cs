@@ -11,10 +11,10 @@ namespace View
 
         [Header("Links")]
         [SerializeField] private CellView cellViewPrefab;
-        [SerializeField] private Transform gridParent;
         [SerializeField] private CellGridView cellGridView;
 
         [Header("Monitoring")]
+        [SerializeField] private Transform gridParent;
         [SerializeField] private Vector2Int gridSize = new Vector2Int(6, 6);
 
         public Transform GridParent => gridParent;
